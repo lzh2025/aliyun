@@ -1,3 +1,4 @@
+import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -15,3 +16,9 @@ knn.fit(X_train, y_train)
 # 利用测试集做预测且计算准确率
 correct = np.count_nonzero((knn.predict(X_test) == y_test) == True)
 print ("Accuracy is: %.3f" %(correct/len(X_test)))
+
+a = np.array([1, 2, 3, 0])
+b = np.array([4, 5, 6, 7])
+a = pd.Series(a, index=b)
+print(a.mean())
+print(a[abs(a)>1].index)
